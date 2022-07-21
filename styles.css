@@ -1,0 +1,152 @@
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"; 
+
+:root {
+  --color-green: #50fa7b;
+  --color-site:  #333333;
+}
+
+* { /* Este seletor "*" alcança todos os elementos existentes no html */
+  margin: 0; /* Zeramos a margem */
+  padding: 0; /* Zeramos o padding */
+  border: 0; /* Zeramos o border */
+} /* Com isto acima, ressetamos estas propriedades */
+body {
+  background: #282a36; /* Cor de fundo */
+  font-family: 'Source Sans Pro', sans-serif; /* Definimos o tipo de fonte */
+  color: white;
+}
+header {
+  padding: 32px; /* Superfície ligada diretamente ao conteúdo 
+                    (top/left/bottom/right) */
+  border-bottom: 1px solid #333; /* Cor da borda inferior */
+  background: rgba(0, 0, 0, 0.1); /* Red-green-blue-alpha-opacity
+  o alpha-opacity define a opacidade em uma faixa de valores decimais 
+  de 0 até 1. Opacidade especifica a transparência de um elemento */ 
+}
+.links {
+  text-align: center; /* Alinhamos o texto contido na div ao centro */
+}
+.links a {
+  color: white; /* Cor branca para o texto contido na tag a */
+  font-size: 18px; /* Definimos um tamanho de 18 pixels para a fonte */
+  line-height: 28px; /* Define a altura do texto. Recomenda-se atribuir */
+                     /* uma quantidade de 10 pixels a mais daquela */
+                     /* atribuída ao tamanho da fonte.*/
+  margin: 0 16px;    /* Margem 0 na parte superior e inferior, e 16 nas */ 
+                     /* laterais */ 
+  text-decoration: none; /* Eliminamos o sublinhado da tag a (link) */
+}
+.links a:hover {
+  color: var(--color-green); /* Definimos uma cor verde para o menu quando movemos 
+                       o mouse sobre ele */
+  transition: color 200ms; /* Tempo da transição para a mudança de cor */
+}                                                       
+#wrapper { /* o # indica um seletor de id  */
+  text-align: center; /* Alinhamento de texto da div wrapper ao centro */ 
+  padding: 32px; /* Espaçamento de todo o conteúdo da div (avatar e textos) */
+}                /* (em cima, em baixo e nas laterais) */ 
+#wrapper img { /* Estiliza a tag img que está dentro da div #wrapper */
+  border-radius: 50%; /* Arredonda as bordas da imagem contida na div wrapper */
+  border: 5px solid var(--color-green); /* Arredonda a imagem da div */
+  margin-bottom: 32px; /* Espaçamento inferior da Margem da imagem da div */
+  height: 300px; /* Altura da imagem */
+}
+#wrapper h1 {
+  font-size: 42px; /* Tamanho da fonte */
+  line-height: 52px; /* Define a altura do texto. Recomenda-se atribuir */
+                     /* uma quantidade de 10 pixels a mais daquela */
+                     /* atribuída ao tamanho da fonte.*/
+  font-weight: bold; /* Peso da fonte */
+}
+#wrapper h2 {
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: normal;
+  margin-top: 8px; /* Deixo uma separação entre o h1 e o h2*/
+  opacity: 0.8; /* Deixa a cor do texto um pouco mais leve */
+}
+#wrapper p {
+  max-width: 500px; /* Define o tamanho máximo da linha, fazendo a quebra caso ultrapasse */
+  margin: 32px auto; /* Espaço superior da linha de 32px e */
+                     /* laterais automáticas (centraliza - auto)  */
+  font-size: 24px; 
+  line-height: 34px;
+}
+#wrapper p a { /* Alterar a cor do link */
+  color: var(--color-green);
+}
+#links-footer a {
+  border-bottom: 1px solid var(--color-green); /* Coloca o underline nos links */
+                                               /* GitHub e Linkedin ao não colocar */
+                                               /* o text-decoration: none, como foi*/
+                                               /* colocado no seletor ".links a" */          
+}
+/*=== CARDS ===*/
+.cards { /* Estilizando a section cards */
+  max-width: 800px; /* Limite máximo de largura */
+  margin: 0 auto;   /* Alinhamento ao centro */
+  display: grid;    /* Insere o container numa grid */
+  grid-template-columns: 1fr 1fr 1fr; /* Define 3 colunas */
+  gap: 20px; /* Espaçamento entre as células de 20px*/
+}
+.card { /* Container que agrupar os vídeos */
+  background-color: var(--color-site); /* Cor de fundo */
+}
+.card__image-container img {
+  width: 100%; /* Ajusta o container da tag img em 100% da largura da tag */ 
+               /* imediatamente superior a ela, ou seja, a tag que contenha */
+               /* uma definição de largura. No nosso caso o seletor .cards */
+               /* que é superior ao .card__image-container img e possui uma */ 
+               /* largura definida */
+}
+/* Veja abaixo uma forma de aplicarmos uma propriedade aos dois seletores abaixo */
+.card__content,
+.card__info {
+  padding: 24px; /* Espaçamento superior e lateral */
+}
+.card__info {
+  display: grid; /* Definimos que o container estará inserido num grid */
+  grid-template-columns: 1fr 1fr; /* Definimos duas colunas (fraction) */ 
+}
+.card__price {
+  background-color: var(--color-site); /* A cor do card__price("Free") é a mesma */
+  filter: brightness(90%); /* No entanto, inserimos um brilho ne grade de 90% */
+  padding: 5px 20px; /* 5px nas partes superior e inferior e 20px nas laterais */
+  border-radius: 20px; /* Borda arredondada para o grid "Free" */
+  text-align: center; /* Texto alinhado ao centro */
+}
+
+/* === Configurações para a Janela Modal não sendo exibida === */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo transparente com uma força de 70% */
+  width: 100%; /* Largura do Modal */
+  height: 100%; /* Altura do Modal */
+  position: fixed; /* Fixa o Modal na tela */
+  top: 0; /* Fixa o Modal numa posição de topo do formulário */
+  opacity: 0; /* Valores entre 0 e 1, 0=completamente transparente e 1=totalmente opaco*/
+  visibility: hidden; /* deixa de exibir o elemento, ele deixa de ser visível na página */
+}
+.modal {
+  background-color: white; /* Cor de fundo branca */
+  width: 90%; /* Largura ocupada de 90% */
+  height: 90%; /* Altura ocupada de 90% */
+  margin: 5vh auto; /* Posição 5vh de alinhamento nas partes superior e inferior e */
+                  /* alinhamento automático (centralizado) nas laterais. */
+                  /* 5vh corresponde a 5px da visão da altura (vh), ou seja, se a */
+                  /* altura da janela for redimensionada será preservado o alinhamento */
+  position: relative; /* Permitirá que a estilização abaixo (.modal .close-modal) */ 
+                      /* referente ao ícone "x" seja relativa a esta janela modal branca */                
+}
+.modal .close-modal {
+  color: black; /* A cor do ícone será preta */
+  position: absolute; /* permite o posicionamento do elemento em qualquer local dentro */
+                      /* do modal definido acima */ 
+  right: 8px; /* Afastamento do canto direito da janela modal branca */
+  top: 8px; /* Afastamento do topo superior direito da janela modal branca */
+  cursor: pointer; /* Transforma o ícone em uma mãozinha quando passamos o mouse sobre ele */
+}
+/* === Configurações para a Janela Modal sendo exibida === */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;  
+}
